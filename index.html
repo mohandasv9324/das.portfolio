@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title> Mohan Das   Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      position: absolute;
+      top: 30px;
+      animation: slideFadeIn 1.5s ease-out forwards;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+
+    @keyframes slideFadeIn {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+      text-align: center;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: url('h.jpeg') center/cover no-repeat;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      animation: popIn 1.2s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .info h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      animation: fadeInText 1.8s ease-in-out;
+    }
+
+    .info p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #f5f5f5;
+      animation: fadeInText 2.2s ease-in-out;
+    }
+
+    .button-bar {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      margin-top: 30px;
+      backdrop-filter: blur(10px);
+      animation: fadeInText 2.5s ease-in-out;
+      flex-wrap: wrap;
+    }
+
+    .button-bar button {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .button-bar button:nth-child(2) {
+      background: linear-gradient(45deg, #fc6076, #ff9a44);
+    }
+
+    .button-bar button:nth-child(3) {
+      background: linear-gradient(45deg, #7f00ff, #e100ff);
+    }
+
+    .button-bar button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 2rem;
+        padding: 10px;
+      }
+
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+      }
+
+      .info h2 {
+        font-size: 1.5rem;
+      }
+
+      .info p {
+        font-size: 1rem;
+      }
+
+      .button-bar {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding: 10px;
+      }
+
+      .button-bar button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header> Mohan Das  Portfolio</header>
+
+  <div class="profile-container">
+    <div class="profile-pic"></div>
+
+    <div class="info">
+      <h2>Hi, I'm Mohan Das </h2>
+      <p>Welcome to my creative space. Explore my journey and projects!</p>
+    </div>
+
+    <div class="button-bar">
+      <button onclick="window.location.href='about.html'">About</button>
+      <button onclick="window.location.href='projects.html'">Projects</button>
+      <button onclick="window.location.href='contact.html'">Contact</button>
+    </div>
+  </div>
+</body>
+</html>

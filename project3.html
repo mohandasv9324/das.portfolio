@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automatic Light Control using LDR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    xmp {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    img {
+      display: block;
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LDR-Based Automatic Light Control</h1>
+
+    <div class="section">
+      <h2>Project Description</h2>
+      <p>This project uses an LDR to detect ambient light and automatically turns lights ON at night and OFF during the day using a relay or LED.</p>
+    </div>
+
+    <div class="section">
+      <h2>Circuit Diagram</h2>
+      <img src="c.png" alt="Circuit Diagram">
+      <!-- Replace "circuit.jpg" with your actual file name -->
+    </div>
+
+    <div class="section">
+      <h2>Arduino Source Code</h2>
+      <xmp>
+const int LDR_PIN = A0; // LDR connected to Analog Pin A0
+const int LIGHT_PIN = 9; // Relay Module or LED connected to Pin 9
+int threshold = 500; // Adjust this based on your lighting conditions
+
+void setup() {
+  pinMode(LIGHT_PIN, OUTPUT);
+  Serial.begin(9600); // Initialize Serial Monitor
+}
+
+void loop() {
+  int ldrValue = analogRead(LDR_PIN); // Read LDR sensor value
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue); // Print to Serial Monitor
+
+  if (ldrValue < threshold) {
+    digitalWrite(LIGHT_PIN, HIGH); // Turn ON lights (Night)
+    Serial.println("Lights ON");
+  } else {
+    digitalWrite(LIGHT_PIN, LOW); // Turn OFF lights (Daytime)
+    Serial.println("Lights OFF");
+  }
+
+  delay(500); // Small delay for stability
+}
+      </xmp>
+    </div>
+
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automatic Fan Control using LDR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f2ff;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 850px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1a5276;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    xmp {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+    img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LDR-Based Automatic Fan Control</h1>
+
+    <div class="section">
+      <h2>Overview</h2>
+      <p>This project automatically turns ON a fan when there is bright light and turns it OFF when it’s dark using an LDR and a relay or transistor circuit.</p>
+    </div>
+
+    <div class="section">
+      <h2>Circuit Diagram</h2>
+      <img src="b.png" alt="Fan Control Circuit Diagram">
+    </div>
+
+    <div class="section">
+      <h2>Arduino Code</h2>
+      <xmp>
+const int LDR_PIN = A0; // LDR connected to Analog Pin A0
+const int FAN_PIN = 9; // Relay Module or Transistor connected to Pin 9
+int threshold = 500; // Adjust this based on your environment
+
+void setup() {
+  pinMode(FAN_PIN, OUTPUT);
+  Serial.begin(9600); // Initialize Serial Monitor
+}
+
+void loop() {
+  int ldrValue = analogRead(LDR_PIN); // Read LDR sensor value
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue); // Print to Serial Monitor
+
+  if (ldrValue > threshold) { // If bright light
+    digitalWrite(FAN_PIN, HIGH); // Turn ON Fan
+    Serial.println("Fan ON");
+  } else { // If darkness
+    digitalWrite(FAN_PIN, LOW); // Turn OFF Fan
+    Serial.println("Fan OFF");
+  }
+
+  delay(500); // Small delay for stability
+}
+      </xmp>
+    </div>
+
+    <div class="section">
+      <h2>Working Principle</h2>
+      <p>The LDR senses light intensity. When brightness exceeds the set threshold, the fan turns ON. When light drops below the threshold, the fan turns OFF automatically.</p>
+    </div>
+  </div>
+</body>
+</html>

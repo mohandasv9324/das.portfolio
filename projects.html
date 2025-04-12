@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohan Das' Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #89f7fe, #66a6ff, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease infinite;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #1f3b77;
+      margin-bottom: 50px;
+      font-weight: 700;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .project {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      animation: scaleFade 0.6s ease forwards;
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    .project:nth-child(1) { animation-delay: 0.2s; }
+    .project:nth-child(2) { animation-delay: 0.4s; }
+    .project:nth-child(3) { animation-delay: 0.6s; }
+    .project:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes scaleFade {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project h2 {
+      font-size: 1.4rem;
+      color: #1f3b77;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: #555;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .project button {
+      margin-top: 15px;
+      align-self: flex-start;
+      padding: 10px 18px;
+      background-color: #1f3b77;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .project button:hover {
+      background-color: #3459b0;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mohan Das' Projects</h1>
+
+  <div class="projects">
+    <div class="project">
+      <img src="a.png" alt="LDR-Based Intrusion Detection System">
+      <div class="project-content">
+        <h2>01. LDR-Based Intrusion Detection</h2>
+        <p>Uses an LDR sensor to monitor light variations and trigger alarms upon detecting suspicious movement.</p>
+        <button onclick="location.href='project1.html'">View Project</button>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="b.png" alt="LDR-Based Fan Control">
+      <div class="project-content">
+        <h2>02. Automatic Fan Control</h2>
+        <p>Automatically switches the fan based on lighting conditions using LDR and transistor circuitry.</p>
+        <button onclick="location.href='project2.html'">View Project</button>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="c.png" alt="Auto Light System">
+      <div class="project-content">
+        <h2>03. Auto Light Controller</h2>
+        <p>Turns lights ON at night and OFF in the day by detecting ambient brightness with an LDR.</p>
+        <button onclick="location.href='project3.html'">View Project</button>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="c.png" alt="Basic LDR Light Setup">
+      <div class="project-content">
+        <h2>04. Simple LDR Light Switch</h2>
+        <p>A basic circuit where an LED is controlled using a Light Dependent Resistor for darkness detection.</p>
+        <button onclick="location.href='project4.html'">View Project</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

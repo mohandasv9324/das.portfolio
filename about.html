@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Mohan Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBackground 15s ease infinite;
+    }
+
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .about-box {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 800px;
+      width: 100%;
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: slideIn 1.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 10px;
+      animation: fadeInText 1s ease-out 0.3s forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-top: 15px;
+      animation: fadeInText 1s ease-out 0.6s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .about-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="about-box">
+    <h1>About Mohan Das</h1>
+    <p>
+      Mohan Das is a passionate software developer with a creative mindset and strong technical skills. He specializes in full-stack development and enjoys building responsive, scalable, and efficient digital products.
+    </p>
+    <p>
+      With experience across web and mobile technologies, Mohan has worked on various personal and collaborative projects. His dedication to writing clean code and continuously learning modern tools makes him stand out in today’s fast-paced tech world.
+    </p>
+    <p>
+      Outside of coding, Mohan enjoys exploring new tech trends, mentoring peers, and contributing to open-source communities.
+    </p>
+  </div>
+</body>
+</html>

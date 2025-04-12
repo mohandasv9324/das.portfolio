@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LDR Light Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 850px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1e3d59;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    xmp {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 15px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    p {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LDR Light Control</h1>
+
+    <div class="section">
+      <h2>Overview</h2>
+      <p>This project uses a Light Dependent Resistor (LDR) to automatically turn an LED ON when it’s dark and OFF when there is enough light. It’s a basic light automation setup useful for night lamps or street lights.</p>
+    </div>
+
+    <div class="section">
+      <h2>Circuit Diagram</h2>
+      <img src="c.png" alt="LDR Light Control Circuit">
+    </div>
+
+    <div class="section">
+      <h2>Arduino Code</h2>
+      <xmp>
+const int LDR_PIN = A0; // LDR connected to Analog Pin A0
+const int LED_PIN = 9; // LED connected to Digital Pin 9
+int threshold = 500; // Adjust this based on your environment
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600); // Initialize serial monitor
+}
+
+void loop() {
+  int ldrValue = analogRead(LDR_PIN); // Read LDR value
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue); // Print value in Serial Monitor
+
+  if (ldrValue < threshold) {
+    digitalWrite(LED_PIN, HIGH); // Turn LED ON in darkness
+  } else {
+    digitalWrite(LED_PIN, LOW); // Turn LED OFF in light
+  }
+
+  delay(500); // Small delay for stability
+}
+      </xmp>
+    </div>
+
+    
+  </div>
+</body>
+</html>
